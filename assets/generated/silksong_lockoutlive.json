@@ -35,6 +35,7 @@
             "scattered": 100,
             "nolockout": 100,
             "hard": 100,
+            "experimental": 100,
             "bcollection": 100
         }
     },
@@ -3231,7 +3232,8 @@
                 "act2"
             ],
             "line_categories": [
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3415,7 +3417,8 @@
                 "expensive"
             ],
             "line_categories": [
-                "quest"
+                "quest",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3431,7 +3434,8 @@
                 "faydown"
             ],
             "line_categories": [
-                "location"
+                "location",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3448,7 +3452,8 @@
             ],
             "line_categories": [
                 "location",
-                "collection"
+                "collection",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3464,7 +3469,8 @@
                 "act2"
             ],
             "line_categories": [
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3480,7 +3486,8 @@
                 "faydown"
             ],
             "line_categories": [
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3498,7 +3505,8 @@
             "line_categories": [
                 "quest",
                 "location",
-                "npc"
+                "npc",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3514,7 +3522,8 @@
                 "faydown"
             ],
             "line_categories": [
-                "relic"
+                "relic",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3530,7 +3539,8 @@
                 "act2"
             ],
             "line_categories": [
-                "collection"
+                "collection",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3546,7 +3556,8 @@
                 "faydown"
             ],
             "line_categories": [
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3562,7 +3573,8 @@
                 "clawline"
             ],
             "line_categories": [
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3578,7 +3590,8 @@
                 "faydown"
             ],
             "line_categories": [
-                "npc"
+                "npc",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3594,7 +3607,8 @@
                 "walljump"
             ],
             "line_categories": [
-                "location"
+                "location",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3610,7 +3624,8 @@
                 "walljump"
             ],
             "line_categories": [
-                "location"
+                "location",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3627,7 +3642,8 @@
             ],
             "line_categories": [
                 "collection",
-                "fight"
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []
@@ -3643,7 +3659,9 @@
                 "walljump"
             ],
             "line_categories": [
-                "collection"
+                "collection",
+                "fight",
+                "experimental"
             ],
             "tooltip": "",
             "icons": []

@@ -387,7 +387,7 @@
 
 **Kill 1 Shardillard** | Progression level: ['walljump'] | Other tags: ['fight']
 
-**Kill 2 Shardillards** | Progression level: ['act2'] | Other tags: ['fight']
+**Kill 2 Shardillards** | Progression level: ['act2'] | Other tags: ['fight', 'experimental']
 
 **Break 3 Wood Wasp Nests** | Progression level: ['walljump'] | Other tags: ['location']
 
@@ -411,35 +411,35 @@
 
 **Upper Bilewater Flea** | Progression level: ['faydown'] | Other tags: ['flea']
 
-**Hornet Statuette** | Progression level: ['act2'] | Other tags: ['expensive', 'quest']
+**Hornet Statuette** | Progression level: ['act2'] | Other tags: ['expensive', 'quest', 'experimental']
 
-**Shellwood & Putrified Ducts Bellways** | Progression level: ['faydown'] | Other tags: ['location']
+**Shellwood & Putrified Ducts Bellways** | Progression level: ['faydown'] | Other tags: ['location', 'experimental']
 
-**Inspect Voltridian in Voltnest** | Progression level: ['faydown'] | Other tags: ['location', 'collection']
+**Inspect Voltridian in Voltnest** | Progression level: ['faydown'] | Other tags: ['location', 'collection', 'experimental']
 
-**Drapemite & Giant Drapemite Journal Entries** | Progression level: ['act2'] | Other tags: ['fight']
+**Drapemite & Giant Drapemite Journal Entries** | Progression level: ['act2'] | Other tags: ['fight', 'experimental']
 
-**Clear Groal's Arena** | Progression level: ['faydown'] | Other tags: ['fight']
+**Clear Groal's Arena** | Progression level: ['faydown'] | Other tags: ['fight', 'experimental']
 
-**Save Sherma in Whiteward** | Progression level: ['act2'] | Other tags: ['quest', 'location', 'npc']
+**Save Sherma in Whiteward** | Progression level: ['act2'] | Other tags: ['quest', 'location', 'npc', 'experimental']
 
-**3 Choral Commandments** | Progression level: ['faydown'] | Other tags: ['relic']
+**3 Choral Commandments** | Progression level: ['faydown'] | Other tags: ['relic', 'experimental']
 
-**Cogwork Core & Underworks Maps** | Progression level: ['act2'] | Other tags: ['collection']
+**Cogwork Core & Underworks Maps** | Progression level: ['act2'] | Other tags: ['collection', 'experimental']
 
-**Crustcrag Journal Entry** | Progression level: ['faydown'] | Other tags: ['fight']
+**Crustcrag Journal Entry** | Progression level: ['faydown'] | Other tags: ['fight', 'experimental']
 
-**Servitors Ignim & Boran Journal Entries** | Progression level: ['clawline'] | Other tags: ['fight']
+**Servitors Ignim & Boran Journal Entries** | Progression level: ['clawline'] | Other tags: ['fight', 'experimental']
 
-**Play Needolin for the 3 Pinstresses** | Progression level: ['faydown'] | Other tags: ['npc']
+**Play Needolin for the 3 Pinstresses** | Progression level: ['faydown'] | Other tags: ['npc', 'experimental']
 
-**Hit the Far Fields Chest Lever** | Progression level: ['walljump'] | Other tags: ['location']
+**Hit the Far Fields Chest Lever** | Progression level: ['walljump'] | Other tags: ['location', 'experimental']
 
-**Wash off Muckmaggots in Water** | Progression level: ['walljump'] | Other tags: ['location']
+**Wash off Muckmaggots in Water** | Progression level: ['walljump'] | Other tags: ['location', 'experimental']
 
-**Burning Bug Journal Entry** | Progression level: ['faydown'] | Other tags: ['collection', 'fight']
+**Burning Bug Journal Entry** | Progression level: ['faydown'] | Other tags: ['collection', 'fight', 'experimental']
 
-**Wardenfly Journal Entry** | Progression level: ['walljump'] | Other tags: ['collection']
+**Wardenfly Journal Entry** | Progression level: ['walljump'] | Other tags: ['collection', 'fight', 'experimental']
 
 **Cradle Map** | Progression level: ['act3'] | Other tags: ['collection']
 
