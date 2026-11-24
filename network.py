@@ -1,197 +1,9 @@
-import requests, random, json
+import requests, random
 from time import sleep
 from websockets.sync.client import connect
+import json
 
-ROOM_NAMES = [
-    "Abyssopelagic Zone",
-    "Rose Garden",
-    "Not a Human Hand",
-    "Almost a Tundra",
-    "Sentient Blobs",
-    "Bing of the Hill with Multiverse Time Travel",
-    "Skongin It",
-    "Fa Ri Du La Ci Ma Ne",
-    "POSHANKA",
-    "Savage Beastfly",
-    "Choral Chambers",
-    "Wispfire Lantern",
-    "OOSHKA NEEPLY",
-    "Neepless",
-    "Flea Route",
-    "Cloakless",
-    "Double Shanka",
-    "Quad Shanka",
-    "Looks to the Moon",
-    "Silkshot Weaver",
-    "Weavenest Absolom",
-    "Yuri Stay Winning",
-    "Daves Shard",
-    "Start on Bind",
-    "Bilewater Hidden Bench",
-    "Running for Rosaries",
-    "Fourth Chorus Skip Skip",
-    "Hoker RNG",
-    "Crustnut Powder",
-    "Shaw and Other Things to Yell at Your Enemies",
-    "Silk and Possibly Song",
-    "Lacenet",
-    "Architect Crest",
-    "Bingy Bingus Bongus Blafoingus",
-    "Beast Boost Uppie Strike",
-    "Silkeater Noclip",
-    "Archies Mossberry",
-    "Key Route",
-    "Silver Bells Loop",
-    "Shawtoof",
-    "Hang_08",
-    "Lets Go Gambling",
-    "Cog_08",
-    "Dust_Maze_07",
-    "Failure",
-    "Triple GMS",
-    "Early Second Skarrguard",
-    "Proper Substance Use",
-    "Mrs Streamer",
-    "I Suggest Forcefem",
-    "Toxic Yuri Wins Again",
-    "Zango Becomes Blueful",
-    "Forcefemmed",
-    "Sometimes Its Not Our Turn to Talk",
-    "Fourth Chorus Skip Skip Skip",
-    "Fourth Chorus Skip Skip Skip Skip",
-    "Nyaaaaaa",
-    "Pimpogos",
-    "Save Me From Act 1",
-    "Moss Grotto Reset",
-    "I Need Shards For My Compass",
-    "Debug Hotkey Check",
-    "Hornt",
-    "1999",
-    "Krattball",
-    "Webbed Bouce",
-    "Skimaaaanama",
-    "Heavy Brosary Necklace",
-    "Lunaberry",
-    "Cogwork Canyon",
-    "15 Minutes and a Coffee",
-    "Hornts in Boards",
-    "BS2 is BS",
-    "Canonically Plural Hornet",
-    "V bbbbbbbbbbbbb      vv v    b bb",
-    "Spill Issue"
-]
-
-MIO_ROOM_NAMES = [
-#    "Abyssopelagic Zone",
-    #"Misty Morning",
-    #"Almost a Tundra",
-    #"Sentient Blobs",
-    #"Bing of the Hill with Multiverse Time Travel",
-    #"Gliese Catalog",
-    #"Looks to the Moon",
-    #"Silkshot Weaver",
-    #"Weavenest Absolom",
-    #"Yuri Stay Winning",
-    #"Bingy Bingus Bongus Blafoingus",
-    #"Lets Go Gambling",
-    #"Failure",
-    #"Proper Substance Use",
-    #"Mrs Streamer",
-    #"I Suggest Forcefem",
-    #"Toxic Yuri Wins Again",
-    #"Forcefemmed",
-    #"Sometimes Its Not Our Turn to Talk",
-    #"Nyaaaaaa",
-    #"Debug Hotkey Check",
-    #"1999",
-    #"Webbed Bouce",
-    #"Lunaberry",
-    #"Cogwork Canyon",
-    #"15 Minutes and a Coffee",
-    "V bbbbbbbbbbbbb      vv v    b bb",
-    "Flower Warp",
-    "Washing Machine",
-    "Defective Core",
-    "Stargazing",
-    "Crash the Vessel",
-    "Mel is the Hand's Keeper",
-    "Samsk is the Hand's Keeper",
-    "Rad is the Hand's Keeper",
-    "Skitter Like a Buge",
-    "Finding Samsk",
-    "Toumtoum",
-    "Above the Suns",
-    "FRIENDS :)",
-    "Sixth Tremor",
-    "Coating Components",
-    "Wildcat",
-    "Halyn's Experiment #67",
-    "Spill Issue",
-    "Very Dangerous Red Plants",
-    "Where You Come to Die",
-    "Shairpin Crits",
-    "Ember's Lost Boot",
-    "Target Practice Plushie",
-    "Nacre Drought",
-    "The Eye's Favorite",
-    "<REDACTED>",
-    "Weave, Thread, Cut",
-    "Bulnosaur",
-    "A Rat in the Vessel",
-    "The Wheel",
-    "For Each Voice, a Keeper",
-    "For Each Keeper, a Voice",
-    "You Know She Ate a Cheese",
-    "Save the Heart",
-    "Black Egg Library",
-    "Two Betrayals",
-    "You're Forgiven Now",
-    "Little Sapling",
-    "The Other Side",
-    "Strider Dash",
-    "Orbular Ati",
-    "Mio Upskirt View",
-    "Tomo's Office"
-]
-
-TEAM_NAMES = [
-    "Red Tools",
-    "Blue Tools",
-    "Yellow Tools",
-    "Atla",
-    "Cindril",
-    "Karn",
-    "Murglin",
-    "Absolom",
-    "Karmelita",
-    "Clover",
-    "Nyleth",
-    "Pebb",
-    "Forge Daughter",
-    "Jubilana",
-    "Twelfth Architect",
-    "Silkspear",
-    "Threadstorm",
-    "Sharpdart",
-    "Crosstitch",
-    "Rune Rage",
-    "Pale Nails",
-    "Beastlings",
-    "plasmium", #caravan teams
-    "sherma",
-    "gilly",
-    "vespa",
-    "magnetite",
-    "huntress",
-    "scrounge",
-    "beastling",
-    "Hornt", #silly starts
-    "Soul",
-    "Silk",
-    "Darkness",
-    "Yuri",
-    "Yaoi"
-]
+from constants import DEFAULT_PASSPHRASE, ROOM_NAMES, MIO_ROOM_NAMES, TEAM_NAMES, GameNames, GameTypes
 
 TEAM_COLORS = [
     "#237e3d",
@@ -223,83 +35,102 @@ NEW_CARD_PAYLOAD.update({
     "passphrase" : "fast"
 })
 
+def get_room_name(game: GameNames) -> str:
+    """
+    Gets a room name for a game
+    """
+    if game == GameNames.Mio:
+        return random.choice(MIO_ROOM_NAMES)
+    else:
+        return random.choice(ROOM_NAMES)
 
-class bingosyncClient():
+
+class BingosyncClient:
     """
     Opens a bingosync session with the correct csrf cookies!! Very exciting.
     Implements api methods for bingosync as well probably.
     """
+    bingosync = True
     roomId = None
+    _base_url = "https://bingosync.com"
+    _hostname = "bingosync.com"
 
     def __init__(self):
         self.bingosync = True
         self.session = requests.Session()
+
         #Using a session automatically persists cookies!
         #set user-agent header:
         self.session.headers.update({
             "User-Agent" : "Silksong.Bingogenerator/0.1",
-            "Origin": "https://bingosync.com",
-            "Host": "bingosync.com",
+            "Origin": self._base_url + "/",
+            "Host": self._hostname,
         })
+
         #Make a request to get them cookies
-        r = self.session.get("https://bingosync.com/")
+        r = self.session.get(self._base_url)
         if r.status_code > 499: #server error
-            raise ConnectionError("Bingosync server error. Try Caravan (6x6) or byngosink (5x5, 6x6).")
+            if self.bingosync:
+                raise ConnectionError("Bingosync server error. Try Caravan (6x6) or byngosink (5x5, 6x6).")
+            else:
+                raise ConnectionError("Caravan server error. Try Bingosync (5x5) or byngosink (5x5, 6x6).")
 
-        self.csrfToken = self.session.cookies["csrftoken"]
+        self.csrf_token = self.session.cookies["csrftoken"]
 
-    def newRoom(self, boardJSON, hideCard = True, lockout=False, roomName=None, passphrase="fast", seed = "", game="silksong"):
+
+    def new_room(self, board_json: str,
+                 hide_card=True, lockout=False, room_name=None,
+                 passphrase=DEFAULT_PASSPHRASE, seed ="", game=GameNames.Silksong):
         """
         Opens a new room and sets the instance roomId.
-        """ 
-        formData = NEW_CARD_PAYLOAD.copy()
-        #need to update the following
-        formData.update({
-            "hide_card" : 1 if hideCard else 0,
+        """
+        form_data = NEW_CARD_PAYLOAD.copy()
+
+        # Update the room settings
+        form_data.update({
+            "hide_card" : 1 if hide_card else 0,
             "lockout_mode" : 2 if lockout else 1,
-            "custom_json" : boardJSON,
+            "custom_json" : board_json,
             "passphrase" : passphrase,
             "seed": seed
         })
-        if roomName is None:
-            if game.lower() == "mio":
-                formData["room_name"] = random.choice(MIO_ROOM_NAMES)
-            else:
-                formData["room_name"] = random.choice(ROOM_NAMES)
-        else:
-            formData["room_name"] = roomName
-        formData["csrfmiddlewaretoken"] = [self.csrfToken, self.csrfToken]
-        if self.bingosync:
-            baseUrl = "https://bingosync.com/"
-        else:
-            baseUrl = "https://caravan.kobold60.com/"
-        response = self.session.post(baseUrl, data=formData, allow_redirects=False)
+
+        # Get a name for the room
+        if room_name is None:
+            room_name = get_room_name(game)
+
+        form_data["room_name"] = room_name
+        form_data["csrfmiddlewaretoken"] = [self.csrf_token, self.csrf_token]
+
+        # Send the request
+        response = self.session.post(self._base_url, data=form_data, allow_redirects=False)
         if response.status_code == 302: #expected
             #save the room ID and then disconnect from it
             self.roomId = response.headers["location"].split("/")[2]
-            self.session.get(f"{baseUrl}/room/{self.roomId}/disconnect")
-            self.session.get(f"{baseUrl}")
-        return formData["room_name"], self.roomId
+            self.session.get(f"{self._base_url}/room/{self.roomId}/disconnect")
+            self.session.get(f"{self._base_url}")
 
-    def updateCard(self, roomID, boardJSON, hideCard = True, lockout = False, roomName=None, passphrase="fast", seed = "", bingosync = True):
+        return form_data["room_name"], f"{self._base_url}/room/{self.roomId}"
+
+
+    def update_card(self, room_id: str, board_json: str,
+                    hide_card=True, lockout = False, seed =""):
         """
         Updates a room's card with a new board.
         """
-        formData = STANDARD_PAYLOAD.copy()
+        form_data = STANDARD_PAYLOAD.copy()
+
         #need to update the following
-        formData.update({
-            "room": roomID,
-            "hide_card" : 1 if hideCard else 0,
+        form_data.update({
+            "room": room_id,
+            "hide_card" : 1 if hide_card else 0,
             "lockout_mode" : 2 if lockout else 1,
-            "custom_json" : boardJSON,
+            "custom_json" : board_json,
             "seed": seed
         })
-        if self.bingosync:
-            baseUrl = "https://bingosync.com/"
-        else:
-            baseUrl = "https://caravan.kobold60.com/"
-        formData["csrfmiddlewaretoken"] = [self.csrfToken, self.csrfToken]
-        response = self.session.post(f"{baseUrl}/api/new-card", data=formData)
+
+        form_data["csrfmiddlewaretoken"] = [self.csrf_token, self.csrf_token]
+        response = self.session.post(f"{self._base_url}/api/new-card", data=form_data)
         return response
 
 
@@ -309,82 +140,75 @@ class bingosyncClient():
         """
         self.session.close()
 
-class caravanClient(bingosyncClient):
-    def __init__(self):
-        self.bingosync = False
-        self.session = requests.Session()
-        #Using a session automatically persists cookies!
-        #set user-agent header:
-        self.session.headers.update({
-            "User-Agent" : "Silksong.Bingogenerator/0.1",
-            "Origin": "https://caravan.kobold60.com/",
-            "Host": "caravan.kobold60.com",
-        })
-        #Make a request to get them cookies
-        r = self.session.get("https://caravan.kobold60.com/")
-        if r.status_code > 499: #server error
-            raise ConnectionError("Caravan server error. Try Bingosync (5x5) or byngosink (5x5, 6x6).")
 
-        self.csrfToken = self.session.cookies["csrftoken"]
+class CaravanClient(BingosyncClient):
+    bingosync = False
+    _base_url = "https://caravan.kobold60.com"
+    _hostname = "caravan.kobold60.com"
 
-class byngosinkClient(): #completely different format.
+
+class ByngosinkClient: #completely different format.
     def __init__(self) -> None:
         self.socketAddress = "wss://byngosink-ws.manicjamie.com:555/"
         #self.socketAddress = "ws://localhost:555/"
         self.baseURL = "https://byngosink.manicjamie.com/board.html?id="
 
-    def newFixedRoom(self, boardList: list, gameType: str, roomName = None, gameName: str = "Silksong", players=0):
+    def new_fixed_room(self, board_list: list, game_type: GameTypes, room_name: str | None=None,
+                       game_name=GameNames.Silksong, players=0):
         """
         Opens a new room with fixed board and sets the instance roomId.
         """ 
-        if roomName is None:
-            roomName = random.choice(ROOM_NAMES)
+        if room_name is None:
+            room_name = get_room_name(game_name)
 
         payload = {
             "verb":"OPEN_FIXED",
-            "roomName": roomName,
-            "game": gameName,
+            "roomName": room_name,
+            "game": game_name,
             "generator": "Fixed",
-            "board": gameType,
-            "goals": boardList
+            "board": game_type.value,
+            "goals": board_list
         }
 
         with connect(self.socketAddress) as socket:
             socket.send(json.dumps(payload))
             response = json.loads(socket.recv(10))
-            roomId = response["roomId"]
-            roomURL = self.baseURL+roomId
+            room_id = response["roomId"]
+            room_url = self.baseURL+room_id
 
             if players > 0:
                 #join bingyflea to make teams and then leave
-                socket.send(json.dumps({"verb": "JOIN", "roomId": roomId, "username": "Bingyflea"}))
+                socket.send(json.dumps({"verb": "JOIN",
+                                        "roomId": room_id,
+                                        "username": "Bingyflea"}))
+
                 r2 = json.loads(socket.recv(10))
-                userId = r2["userId"]
+                user_id = r2["userId"]
 
                 names, colors = (random.sample(TEAM_NAMES, k=players), random.sample(TEAM_COLORS, k=players))
                 for i in range(players):
                     socket.send(json.dumps({"verb": "CREATE_TEAM",
-                                            "roomId": roomId,
+                                            "roomId": room_id,
                                             "name": names[i],
                                             "colour": colors[i]}))
                     _ = socket.recv(10)
                     sleep(0.2)
 
                 socket.send(json.dumps({"verb": "LEAVE_TEAM",
-                                        "roomId": roomId}))
+                                        "roomId": room_id}))
                 _ = socket.recv(10) 
                 sleep(0.2)
                 socket.send(json.dumps({"verb": "EXIT",
-                                        "userId": userId,
-                                        "roomId": roomId}))
+                                        "userId": user_id,
+                                        "roomId": room_id}))
                 _ = socket.recv(10)
                 sleep(0.2)
 
-        return (roomName, roomURL)
+        return room_name, room_url
 
 
 if __name__ == "__main__":
-    c = byngosinkClient()
+    c = ByngosinkClient()
     board = ["Beast's Crest", "Vintage Nectar", "Cogwork Core Mask Shard", "Deep Docks Fleas [3]", "Blasted Steps Mask Shard", "Slab Mask Shard", "5 Red Tools", "3 Gather Quests", "Talk to Loam", "Crustnut", "Talk to Shakra in Bilewater", "High Halls Spool Fragment", "1 Crafting Kit", "Obtain 3 Beast Shards", "Meet Caravan at the Grand Gate [12]", "Obtain 5 Craftmetal", "Apostate Key", "Pimpillo & Voltvessels", "Skull Tyrant", "2 Wayfarer Quests", "Conductor's Melody", "Rosary Cannon", "Voltvyrm", "Buy From Grindle (No String)", "Moorwing", "Flintslate", "Witch Crest", "Sands of Karak Flea [1]", "2 Extra Masks", "Mt. Fay Mask Shard", "Defeat a Covetous Pilgrim", "Obtain 5 Memory Lockets", "Deep Docks Spool Fragments (2)", "Disgraced Chef Lugoli", "Pale Lake Craftmetal", "Talk to Styx & Huntress"]
-    _, rId = c.newFixedRoom(board, gameType="Bingo6", players=5)
+    _, rId = c.new_fixed_room(board, game_type=GameTypes.Caravan, players=5)
     print(rId)
